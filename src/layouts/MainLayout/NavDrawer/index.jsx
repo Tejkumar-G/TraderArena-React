@@ -1,38 +1,31 @@
 import { Box, Drawer } from "@mui/material";
-import './style.scss';
+import "./style.scss";
 import DrawerContent from "./DrawerContent";
-import { useState } from "react";
+import { setDrawerOpen } from "../../../redux/slices/layoutSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const NavDrawer = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const { drawerOpen } = useSelector((state) => state.layout);
+  const dispatch = useDispatch();
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    dispatch(setDrawerOpen());
   };
-
+  
   return (
-    <Box
-      component="nav"
-      className='nav-bar'
-    >
+    <Box component="nav">
       <Drawer
+        className="drawer"
         variant="temporary"
-        open={mobileOpen}
+        open={drawerOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, 
-        }}
-        sx={{
-          display: { xs: "block", sm: "none" },
+          keepMounted: true,
         }}
       >
         <DrawerContent />
       </Drawer>
-      <Drawer
-        
-        variant="permanent"
-        open
-      >
+      <Drawer variant="permanent" className="drawer lg-drawer">
         <DrawerContent />
       </Drawer>
     </Box>
