@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import SignUp from '../pages/SignUp';
 import AuthGuard from '../guards/AuthGuard';
-import DashboardLayout from '../layouts/DashboardLayout';
+import MainLayout from '../layouts';
 const router = createBrowserRouter([
   {
     path: '/signup',
@@ -11,9 +11,13 @@ const router = createBrowserRouter([
     path: '/',
     element: (
       <AuthGuard>
-        <DashboardLayout />
+        {/* <DashboardLayout /> */}
       </AuthGuard>
     ),
+  },
+  {
+    path: '/dash',
+    element: <MainLayout />,
   },
 ]);
 
