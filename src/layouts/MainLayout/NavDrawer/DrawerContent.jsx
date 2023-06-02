@@ -7,14 +7,12 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Toolbar,
 } from "@mui/material";
 const DrawerContent = () => {
   return (
     <div>
-      <Toolbar />
-      <Divider />
       <Profile />
+      <Divider className='divider'/>
       <List>
         {NavigationConfig.map((navItem) => (
           <ListItem key={navItem.title} disablePadding>

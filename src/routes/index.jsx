@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import SignUp from '../pages/SignUp';
 import AuthGuard from '../guards/AuthGuard';
-import MainLayout from '../layouts';
+import MainLayout from '../layouts/MainLayout';
 const router = createBrowserRouter([
   {
     path: '/signup',

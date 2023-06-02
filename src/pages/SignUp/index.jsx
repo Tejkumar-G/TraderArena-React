@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import ErrorElement from '../../components/ErrorElement';
 import { SignupSchema } from '../../shared/constants';
 import { signUp } from '../../api/user';
+import './style.scss';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -20,8 +21,8 @@ const SignUp = () => {
     setSubmitting(false);
   };
   return (
-    <div className=' h-screen grid place-content-center gap-2'>
-      <h1 className='text-center font-semibold text-xl'>Register</h1>
+    <div className='signup-container'>
+      <h1 className='title'>Register</h1>
       <Formik
         initialValues={{
           first_name: '',
@@ -34,7 +35,7 @@ const SignUp = () => {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting, handleChange, handleBlur, values }) => (
-          <Form className='flex flex-col mt-3 space-y-4'>
+          <Form className='form'>
             <TextField
               required
               label='First Name'
@@ -98,7 +99,7 @@ const SignUp = () => {
       </Formik>
       <Typography>
         Already have an account?{' '}
-        <Link className='cursor-pointer' onClick={() => navigate('/')}>
+        <Link className='link' onClick={() => navigate('/')}>
           Login here
         </Link>
       </Typography>

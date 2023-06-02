@@ -1,0 +1,38 @@
+.profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: fit-content;
+
+  .MuiAvatar-root {
+    background-color: #1976d2;
+   font-size: 2rem;
+   padding: 15px;
+  }
+
+  .username{
+    margin-top: 10px;
+    font-size: 1.5rem;
+  }
+}
+
+.nav-bar {
+  .MuiDrawer-paper {
+    box-sizing: border-box;
+    margin-top: 80px;
+    padding-top: 20px;
+    width: 20%;
+    z-index: 40;
+
+    .divider{
+        width: 100%;
+        margin: 20px 0;
+      }
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-bar {
+    display: none;
+  }
+}
