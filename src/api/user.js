@@ -45,13 +45,14 @@ export const getUser = (id, callback) => {
     try {
       const response = await userAPI.get(`/user/${id}`);
       if (callback) callback();
+      console.log(response.data);
       //{"id":6,"first_name":"test","last_name":"test","email":"test12@gma
       dispatch(setUser(response.data));
     } catch (err) {
       //need to handle error
       // if (err.response.data)
       //   showAlert(Object.values(err.response.data).flat(), "error");
-      dispatch(setUser([]));
+      // dispatch(setUser({}));
     }
     dispatch(setLoading());
   };
