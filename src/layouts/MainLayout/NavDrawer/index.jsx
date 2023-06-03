@@ -15,7 +15,7 @@ const NavDrawer = () => {
   return (
     <Box component="nav">
       <Drawer
-        className="drawer"
+        className="drawer sm-drawer"
         variant="temporary"
         open={drawerOpen}
         onClose={handleDrawerToggle}

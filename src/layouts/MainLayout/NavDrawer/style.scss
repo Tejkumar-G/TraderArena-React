@@ -19,7 +19,6 @@
 .drawer {
   .MuiDrawer-paper {
     box-sizing: border-box;
-    margin-top: 80px;
     padding-top: 20px;
     z-index: 40;
     width: 260px;
@@ -32,6 +31,11 @@
 
 @media (max-width: 899px) {
   .lg-drawer {
+    display: none;
+  }
+}
+@media (min-width: 899px) {
+  .sm-drawer {
     display: none;
   }
 }
