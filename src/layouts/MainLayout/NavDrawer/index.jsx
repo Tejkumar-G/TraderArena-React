@@ -1,5 +1,5 @@
 import { Box, Drawer } from "@mui/material";
-import "./style.scss";
+import "./navDrawer.scss";
 import DrawerContent from "./DrawerContent";
 import { setDrawerOpen } from "../../../redux/slices/layoutSlice";
 import { useDispatch, useSelector } from "react-redux";

@@ -1,5 +1,5 @@
 import { userAPI } from '../api';
-import { setSession } from './session';
+import { removeSession, setSession } from './session';
 import { showAlert } from './toast';
 
 export async function getAccessToken(error, axiosInstance) {
@@ -23,6 +23,7 @@ export async function getAccessToken(error, axiosInstance) {
     }
   } else {
     showAlert(['Session Expired Please Login Again']);
+    removeSession()
   }
 
   // return Error object with Promise

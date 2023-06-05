@@ -1,4 +1,4 @@
-import "./style.scss";
+import "./header.scss";
 import { AppBar, IconButton, Toolbar } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useDispatch } from "react-redux";
