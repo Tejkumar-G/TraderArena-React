@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import ErrorElement from '../../components/ErrorElement';
 import { SignupSchema } from '../../shared/constants';
 import { signUp } from '../../api/user';
-import './style.scss';
+import './signUp.scss';
 
 const SignUp = () => {
   const navigate = useNavigate();

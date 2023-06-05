@@ -1,6 +1,6 @@
 import Header from './Header';
 import NavDrawer from './NavDrawer';
-import './style.scss';
+import './mainLayout.scss';
 import { Outlet } from 'react-router-dom';
 
 const MainLayout = () => {

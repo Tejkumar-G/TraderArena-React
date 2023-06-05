@@ -1,6 +1,6 @@
 import { Backdrop, CircularProgress } from "@mui/material";
 import { useSelector } from "react-redux";
-import "./PageLoader.scss"
+import "./pageLoader.scss"
 const PageLoader = () => {
   const { isLoading } = useSelector((state) => state.layout);
   return (
