@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import Login from '../pages/Login';
-import PageLoader from '../components/PageLoader';
+import PageLoader from '../components/PageLoader/PageLoader';
 
 const AuthGuard = ({ children }) => {
   const { isAuthenticated, isLoading } = useSelector((state) => state.user);
