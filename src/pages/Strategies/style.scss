@@ -2,6 +2,14 @@
     display: flex;
     gap:30px;
     .strategy-card{
+        animation: popup 800ms;
         max-width: 30%;
-    }
+    } 
+      @keyframes popup {
+        0%{
+          transform: translateY(10%);
+          opacity: 20%;
+        }
+      }
 }
+

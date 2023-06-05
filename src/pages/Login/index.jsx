@@ -12,7 +12,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const onSuccess = () => {
-    navigate('/', { replace: true, state: { forceRefresh: true } });
+    navigate('/strategies', { replace: true, state: { forceRefresh: true } });
   };
 
   const handleSubmit = async (values, { setSubmitting }) => {
