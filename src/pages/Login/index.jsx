@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import ErrorElement from '../../components/ErrorElement';
 import { LoginSchema } from '../../shared/constants';
 import { login } from '../../api/user';
+import './style.scss';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,8 +22,8 @@ const Login = () => {
   };
 
   return (
-    <div className=' h-screen grid place-content-center gap-2'>
-      <h1 className='text-center font-semibold text-xl'>Login</h1>
+    <div className='login-container'>
+      <h1 className='title'>Login</h1>
       <Formik
         initialValues={{
           email: '',
@@ -32,7 +33,7 @@ const Login = () => {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting, handleChange, handleBlur, values }) => (
-          <Form className='flex flex-col mt-3 fi'>
+          <Form className='form'>
             <TextField
               required
               label='Email'
@@ -45,7 +46,6 @@ const Login = () => {
             />
             <ErrorMessage name='email' render={ErrorElement} />
             <TextField
-              style={{ marginTop: '4%' }}
               required
               label='Password'
               variant='outlined'
@@ -57,7 +57,6 @@ const Login = () => {
             />
             <ErrorMessage name='password' render={ErrorElement} />
             <Button
-              style={{ marginTop: '4%' }}
               variant='contained'
               type='submit'
               disabled={isSubmitting}
@@ -69,7 +68,7 @@ const Login = () => {
       </Formik>
       <Typography>
         Don&apos;t have an account{' '}
-        <Link className='cursor-pointer' onClick={() => navigate('/signup')}>
+        <Link className='link' onClick={() => navigate('/signup')}>
           Sign Up
         </Link>
       </Typography>
