@@ -1,9 +1,9 @@
-import "./header.scss";
-import { AppBar, IconButton, Toolbar } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { AppBar, IconButton, Toolbar } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { setDrawerOpen } from "../../../redux/slices/layoutSlice";
 import Logout from "./Logout";
+import "./header.scss";
 
 const Header = () => {
   const dispatch = useDispatch();

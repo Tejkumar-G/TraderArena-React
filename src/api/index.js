@@ -12,7 +12,9 @@ export const userAPI = axios.create({
 });
 
 export const strategyAPI = axios.create({
-  baseURL: process.env.REACT_APP_STRATEGY_SERVICE_BASE_URL,
+  baseURL: 'http://192.168.5.97:8001'
+
+  // use this base url when you got any issue in current base url, since I'm doing changes.,
 });
 
 userAPI.interceptors.response.use(null, (error) => getAccessToken(error, userAPI));

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import StrategyCard from "./StrategyCard";
+import StrategyCard from "../../components/StrategyCard";
 import "./strategies.scss";
 import { useEffect } from "react";
 import { getStrategies } from "../../api/strategy";

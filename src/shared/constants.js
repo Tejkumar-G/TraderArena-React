@@ -1,7 +1,13 @@
 import * as Yup from "yup";
 
-export const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+export const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
+export const Paths = {
+  New_Strategy_Page: "/new-strategy",
+  My_Strategies_Page : "/my-strategies",
+  Strategy_Market_Page: "/strategies"
+};
 export const SignupSchema = Yup.object().shape({
   first_name: Yup.string().required("First name required"),
   last_name: Yup.string().required("Last name is required"),
@@ -21,4 +27,7 @@ export const LoginSchema = Yup.object().shape({
     .required("Password is required"),
 });
 
-
+export const createStrategySchema = Yup.object().shape({
+  name: Yup.string().required("Name is required"),
+  description: Yup.string().required("Description is required"),
+});

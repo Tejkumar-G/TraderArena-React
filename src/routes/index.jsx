@@ -1,8 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import SignUp from "../pages/SignUp";
 import AuthGuard from "../guards/AuthGuard";
 import MainLayout from "../layouts/MainLayout";
+import MyStrategies from "../pages/MyStrategies";
+import NewStrategy from "../pages/NewStrategy";
+import SignUp from "../pages/SignUp";
 import Strategies from "../pages/Strategies";
+import ViewStrategy from '../pages/ViewStrategy';
+import EditStrategy from '../pages/EditStrategy';
 
 const router = createBrowserRouter([
   {
@@ -18,13 +22,25 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: 'strategies',
+        path: "strategies",
         element: <Strategies />,
         index: true,
       },
       {
-        path: "test",
-        element: <h2>Test</h2>,
+        path: "my-strategies",
+        element: <MyStrategies />,
+      },
+      {
+        path: "new-strategy",
+        element: <NewStrategy />,
+      },
+      {
+        path: "strategy/:id",
+        element: <ViewStrategy />,
+      },
+      {
+        path: "strategy/edit/:id",
+        element: <EditStrategy />,
       },
     ],
   },

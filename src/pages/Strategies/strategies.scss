@@ -1,9 +1,10 @@
 .strategy-container{
     display: flex;
+    flex-wrap: wrap;
     gap:30px;
     .strategy-card{
         animation: popup 800ms;
-        max-width: 30%;
+        // max-width: 30%;
     } 
       @keyframes popup {
         0%{

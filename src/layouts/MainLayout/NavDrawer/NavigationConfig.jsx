@@ -2,13 +2,13 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 export default [
   {
-    title: "Strategies",
+    title: "Strategy Market",
     href: "/strategies",
     icon: ShoppingCartOutlinedIcon,
   },
   {
-    title: "Test",
-    href: "/test",
+    title: "My Strategies",
+    href: "/my-strategies",
     icon: ShoppingCartOutlinedIcon,
   },
 ];
