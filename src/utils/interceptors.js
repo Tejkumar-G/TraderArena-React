@@ -7,7 +7,7 @@ export async function getAccessToken(error, axiosInstance) {
   if (originalRequest.url !== '/token/refresh/') {
     if (
       error.response.status === 401 &&
-      error.response?.data?.code === 'token_not_valid'
+      (error.response?.data?.code === 'token_not_valid'|| error.response?.data?.error === "Invalid token")
     ) {
       return userAPI
         .post('/token/refresh/', {

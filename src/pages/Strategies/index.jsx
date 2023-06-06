@@ -3,18 +3,24 @@ import StrategyCard from "../../components/StrategyCard";
 import "./strategies.scss";
 import { useEffect } from "react";
 import { getStrategies } from "../../api/strategy";
+import { useNavigate } from 'react-router';
 
 const Strategies = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { strategies } = useSelector((state) => state.strategy);
   useEffect(() => {
     dispatch(getStrategies({ page: 1, per_page: 20 }));
   }, []);
 
+  const openStrategyHandler = (strategyId) =>{
+    navigate(`/strategy/${strategyId}`);
+  }
+
   return (
     <div className="strategy-container">
       {strategies.map((item) => (
-        <StrategyCard key={item.id} strategy={item} />
+        <StrategyCard key={item.id} strategy={item} handleClick={openStrategyHandler}/>
       ))}
     </div>
   );

@@ -6,13 +6,13 @@ import "./strategyForm.scss";
 
 const StrategyForm = ({ handleSubmit, editMode = false, editData }) => {
   const initialValues = editMode
-    ? { name: "name", description: "description" }
+    ? { name: editData?.name, description: editData?.description }
     : { name: "", description: "" };
   return (
     <Grid container justifyContent="center">
       <Grid item>
         <Typography textAlign="center" variant="h5">
-          New Strategy
+          {editMode? 'Edit Strategy' : 'New Strategy'}
         </Typography>
         <Formik
           initialValues={initialValues}

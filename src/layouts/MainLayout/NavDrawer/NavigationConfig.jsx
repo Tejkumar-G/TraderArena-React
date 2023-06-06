@@ -1,4 +1,5 @@
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 
 export default [
   {
@@ -9,6 +10,6 @@ export default [
   {
     title: "My Strategies",
     href: "/my-strategies",
-    icon: ShoppingCartOutlinedIcon,
+    icon: CurrencyExchangeIcon,
   },
 ];

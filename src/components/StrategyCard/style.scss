@@ -1,16 +1,20 @@
-.strategy-card{
-   width: 20%;
-   min-width: 200px;
-   cursor: pointer;
-   .content{
-    // padding-bottom: 60px;
+.strategy-card {
+  width: 20%;
+  min-width: 200px;
+  cursor: pointer;
+  .content {
     height: 120px;
-    .description{
-        overflow: hidden;
-        display: -webkit-box;
-       -webkit-box-orient: vertical;
-       -webkit-line-clamp: 4;
-        text-overflow: ellipsis;
+    .description {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      text-overflow: ellipsis;
     }
-   }
+    .name {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
 }

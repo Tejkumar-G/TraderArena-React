@@ -1,23 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { createStrategy } from "../../api/strategy";
+import { updateStrategy } from "../../api/strategy";
 import StrategyForm from "../../components/StrategyForm";
-import { Paths } from "../../shared/constants";
 
 const EditStrategy = () => {
-  const { currentStartegy } = useSelector((state)=>state.strategy)
+  const { currentStrategy } = useSelector((state) => state.strategy);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const submitHandler = (data) => {
     console.log(data);
-    // dispatch(createStrategy(data));
-    // navigate(Paths.My_Strategies_Page);
+    dispatch(updateStrategy(currentStrategy?.id, data));
+    navigate(-1);
   };
 
   return (
-    <div className='new-strategy-page'>
-      <StrategyForm handleSubmit={submitHandler} editMode={true} editData={currentStartegy}/>
+    <div className="new-strategy-page">
+      <StrategyForm
+        handleSubmit={submitHandler}
+        editMode={true}
+        editData={currentStrategy}
+      />
     </div>
   );
 };

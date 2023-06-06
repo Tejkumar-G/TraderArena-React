@@ -1,5 +1,3 @@
-import Profile from "./Profile";
-import NavigationConfig from "./NavigationConfig";
 import {
   Divider,
   List,
@@ -8,12 +6,15 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 import { setDrawerOpen } from "../../../redux/slices/layoutSlice";
+import NavigationConfig from "./NavigationConfig";
+import Profile from "./Profile";
 
 const DrawerContent = () => {
   const { pathname } = useLocation();
+  const { strategyAccess } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const NavChangeHandler = (link) => {
@@ -25,22 +26,29 @@ const DrawerContent = () => {
       <Profile />
       <Divider className="divider" />
       <List>
-        {NavigationConfig.map((navItem) => (
-          <ListItem
-            key={navItem.title}
-            disablePadding
-            className={`${pathname === navItem.href ? "active-nav" : ""}`}
-          >
-            <ListItemButton onClick={() => NavChangeHandler(navItem.href)}>
-              <ListItemIcon>
-                <navItem.icon
-                  color={`${pathname === navItem.href && "primary"}`}
-                />
-              </ListItemIcon>
-              <ListItemText primary={navItem.title} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {NavigationConfig.map((navItem) => {
+          if (
+            navItem.title === "My Strategies" &&
+            strategyAccess?.create === false
+          )
+            return;
+          return (
+            <ListItem
+              key={navItem.title}
+              disablePadding
+              className={`${pathname === navItem.href ? "active-nav" : ""}`}
+            >
+              <ListItemButton onClick={() => NavChangeHandler(navItem.href)}>
+                <ListItemIcon>
+                  <navItem.icon
+                    color={`${pathname === navItem.href && "primary"}`}
+                  />
+                </ListItemIcon>
+                <ListItemText primary={navItem.title} />
+              </ListItemButton>
+            </ListItem>
+          );
+        })}
       </List>
     </div>
   );

@@ -1,27 +1,37 @@
-import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import AlertDialog from '../../components/AlertDialog';
-import { useState } from 'react';
+import { Button } from "@mui/material";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+import { deleteStrategy } from "../../api/strategy";
+import AlertDialog from "../../components/AlertDialog";
 
+const DeleteButton = ({ strategyId }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [openDialog, setOpenDialog] = useState(false);
 
-const DeleteButton = () => {
+  const closeDialogHandler = () => {
+    setOpenDialog(false);
+  };
 
-    const [openDialog, setOpenDialog] = useState(false);
-
-    const closeDialogHandler = () =>{
-        setOpenDialog(false)
-    }
-
-    const deleteHandler = () =>{
-        closeDialogHandler()
-    }
-    const alertContent = "Are you sure do you want to delete?"
+  const deleteHandler = () => {
+    dispatch(deleteStrategy(strategyId));
+    closeDialogHandler();
+    navigate(-1);
+  };
+  const alertContent = "Are you sure do you want to delete?";
   return (
     <>
-    <Button variant="outlined" color="error" startIcon={<DeleteIcon />} onClick={()=>setOpenDialog(true)}>
-      Delete
-    </Button>
-    <AlertDialog
+      <Button
+        variant="outlined"
+        color="error"
+        startIcon={<DeleteIcon />}
+        onClick={() => setOpenDialog(true)}
+      >
+        Delete
+      </Button>
+      <AlertDialog
         open={openDialog}
         onClose={closeDialogHandler}
         onAccept={deleteHandler}

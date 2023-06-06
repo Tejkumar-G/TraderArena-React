@@ -27,12 +27,17 @@ export const strategySlice = createSlice({
     },
 
     setMyStrategies: (state, action) => {
-      state.myStrategies = action.payload;
+      state.myStrategies = action.payload.strategies;
+      state.myStrategiesDetails = action.payload;
+    },
+
+    clearCurrentStrategy: (state) => {
+      state.currentStrategy = {};
     },
   },
 });
 
-export const { setLoading, setStrategies, setCurrentStrategy, setMyStrategies } =
+export const { setLoading, setStrategies, setCurrentStrategy, setMyStrategies, clearCurrentStrategy } =
   strategySlice.actions;
 
 export default strategySlice.reducer;
